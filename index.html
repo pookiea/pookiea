@@ -48,7 +48,8 @@
       color: white;
     }
 
-    .kiss-heart {
+    .kiss-heart,
+    .peach-emoji {
       position: absolute;
       bottom: 100px;
       font-size: 3rem;
@@ -87,12 +88,18 @@
 <body>
   <h1>Hey Hussybear&lt;3</h1>
 
+  <!-- Buttons -->
   <button onclick="sendVirtualKiss()">Tap for a Virtual Kiss 😚💋</button>
-  <audio id="kiss-sound" src="kiss.ogg"></audio>
-
   <button onclick="downloadCuddles()">Download Cuddles 🤗</button>
   <button onclick="summonPookie()">Summon Pookie ✨</button>
+  <button onclick="spankAction()">Spank 🍑</button>
 
+  <!-- Audios -->
+  <audio id="kiss-sound" src="kiss.ogg" type="audio/ogg"></audio>
+  <audio id="spank-sound" src="spank.mpeg" type="audio/mpeg"></audio>
+  <audio id="moan-sound" src="moan.mpeg" type="audio/mpeg"></audio>
+
+  <!-- Pookiea Image -->
   <img src="pookie.jpg" id="pookie-img" alt="Pookiea">
 
   <!-- Floating hearts -->
@@ -102,6 +109,7 @@
   <div class="heart-deco" style="top: 60%; left: 70%;">💘</div>
   <div class="heart-deco" style="top: 40%; left: 30%;">💕</div>
 
+  <!-- Script -->
   <script>
     function sendVirtualKiss() {
       const kiss = document.createElement("div");
@@ -127,6 +135,30 @@
     function summonPookie() {
       const img = document.getElementById("pookie-img");
       img.style.display = "block";
+    }
+
+    function spankAction() {
+      const spank = document.getElementById("spank-sound");
+      const moan = document.getElementById("moan-sound");
+
+      // Play spank sound
+      spank.currentTime = 0;
+      spank.play();
+
+      // Play moan after delay
+      setTimeout(() => {
+        moan.currentTime = 0;
+        moan.play();
+      }, 500);
+
+      // Add 🍑 emoji
+      const peach = document.createElement("div");
+      peach.innerText = "🍑";
+      peach.classList.add("peach-emoji");
+      peach.style.left = Math.random() * 80 + 10 + "vw";
+      document.body.appendChild(peach);
+
+      setTimeout(() => peach.remove(), 2000);
     }
   </script>
 </body>
