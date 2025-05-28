@@ -95,6 +95,19 @@
       background: #f0f;
       color: #000;
     }
+
+    #messageBox {
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #0f0;
+      text-shadow: 0 0 8px #0f0;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -103,11 +116,26 @@
   <div class="heart">💔 💜 💖 💘 💓</div>
 
   <div class="buttons">
-    <button>Send Virtual Kiss 😚</button>
-    <button>Download Cuddles 💾</button>
-    <button>Inject Dopamine 💉</button>
-    <button>Summon Support Pookie 🐥</button>
-    <button>Reboot My Heart 🖤</button>
+    <button onclick="showMessage('💋 MWAH! Virtual kiss sent! 😚')">Send Virtual Kiss 😚</button>
+    <button onclick="showMessage('📥 Downloading cuddles... Complete! You’ve got 9999 cuddles 🐻')">Download Cuddles 💾</button>
+    <button onclick="showMessage('🧠 Administering serotonin... You’re safe now, my love 💉')">Inject Dopamine 💉</button>
+    <button onclick="showMessage('🐥 Support Pookie has arrived: “I’m here. Always.”')">Summon Support Pookie 🐥</button>
+    <button onclick="reboot()">Reboot My Heart 🖤</button>
   </div>
+
+  <div id="messageBox"></div>
+
+  <script>
+    function showMessage(message) {
+      document.getElementById('messageBox').innerText = message;
+    }
+
+    function reboot() {
+      document.getElementById('messageBox').innerText = "🔁 Rebooting... Please wait...";
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
+    }
+  </script>
 </body>
 </html>
