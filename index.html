@@ -16,6 +16,7 @@
       height: 100vh;
       overflow: hidden;
       text-align: center;
+      position: relative;
     }
 
     h1 {
@@ -49,9 +50,10 @@
     }
 
     .kiss-heart {
-      position: fixed;
+      position: absolute;
+      bottom: 80px;
       font-size: 2rem;
-      animation: floatUp 1.5s ease-out;
+      animation: floatUp 2s ease-out;
       color: #ff66b2;
     }
 
@@ -63,10 +65,12 @@
     #pookie-img {
       max-width: 200px;
       border-radius: 20px;
+      opacity: 0;
       display: none;
       margin-top: 20px;
       box-shadow: 0 0 20px #ff99cc;
       border: 4px solid #ff66cc;
+      transition: opacity 0.5s ease-in-out;
     }
 
     .heart-deco {
@@ -81,82 +85,7 @@
       50% { transform: translateY(-30px); }
       100% { transform: translateY(0); }
     }
-
-    /* heart rain animation */
-    .rain-heart {
-      position: fixed;
-      top: -50px;
-      font-size: 2rem;
-      animation: fall 5s linear infinite;
-      color: #ff80bf;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-50px); }
-      100% { transform: translateY(100vh); }
-    }
   </style>
 </head>
 <body>
-  <h1>Hey Hussybear&lt;3</h1>
-
-  <button onclick="sendVirtualKiss()">Tap for a Virtual Kiss 😚💋</button>
-  <audio id="kiss-sound" src="kiss.ogg"></audio>
-
-  <button onclick="downloadCuddles()">Download Cuddles 🤗</button>
-
-  <button onclick="summonPookie()">Summon Pookie ✨</button>
-  <img src="pookie.jpg" id="pookie-img" alt="Pookiea">
-
-  <!-- Heart rain -->
-  <div class="heart-deco" style="top: 10%; left: 5%;">💗</div>
-  <div class="heart-deco" style="top: 20%; left: 85%;">💞</div>
-  <div class="heart-deco" style="top: 80%; left: 15%;">💓</div>
-  <div class="heart-deco" style="top: 60%; left: 70%;">💘</div>
-  <div class="heart-deco" style="top: 40%; left: 30%;">💕</div>
-
-  <!-- Background music -->
-  <audio autoplay loop volume="0.5">
-    <source src="bgmusic.mp3" type="audio/mpeg">
-  </audio>
-
-  <script>
-    function sendVirtualKiss() {
-      const kiss = document.createElement("div");
-      kiss.innerText = "💋";
-      kiss.className = "kiss-heart";
-      kiss.style.left = "50%";
-      kiss.style.top = "50%";
-      kiss.style.transform = "translate(-50%, -50%)";
-      document.body.appendChild(kiss);
-      setTimeout(() => kiss.remove(), 1500);
-
-      const kissSound = document.getElementById("kiss-sound");
-      kissSound.currentTime = 0;
-      kissSound.play();
-    }
-
-    function downloadCuddles() {
-      alert("Downloading cuddles...");
-      setTimeout(() => {
-        alert("🤗 Sending the tightest cuddle from Pookiea!");
-        // Cuddle animation heart rain
-        for (let i = 0; i < 20; i++) {
-          const heart = document.createElement("div");
-          heart.className = "rain-heart";
-          heart.innerText = "💞";
-          heart.style.left = Math.random() * 100 + "vw";
-          heart.style.animationDelay = Math.random() * 5 + "s";
-          document.body.appendChild(heart);
-          setTimeout(() => heart.remove(), 5000);
-        }
-      }, 2000);
-    }
-
-    function summonPookie() {
-      const img = document.getElementById("pookie-img");
-      img.style.display = "block";
-    }
-  </script>
-</body>
-</html>
+  <h1>Hey Hussybear&lt;3</h
