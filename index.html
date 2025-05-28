@@ -106,25 +106,25 @@
   <script>
     function playKiss() {
      const kiss = document.createElement("div");
-  kiss.innerText = "💋";
-  kiss.style.position = "fixed";
-  kiss.style.left = Math.random() * 100 + "vw";
-  kiss.style.top = Math.random() * 100 + "vh";
-  kiss.style.fontSize = "2rem";
-  kiss.style.opacity = 1;
-  kiss.style.transition = "all 1s ease-out";
-  document.body.appendChild(kiss);
+     kiss.innerText = "💋";
+     kiss.style.position = "fixed";
+     kiss.style.left = Math.random() * 100 + "vw";
+     kiss.style.top = Math.random() * 100 + "vh";
+     kiss.style.fontSize = "2rem";
+     kiss.style.opacity = 1;
+     kiss.style.transition = "all 1s ease-out";
+     document.body.appendChild(kiss);
 
-  setTimeout(() => {
-    kiss.style.transform = "scale(2)";
-    kiss.style.opacity = 0;
-  }, 10);
+     setTimeout(() => {
+      kiss.style.transform = "scale(2)";
+      kiss.style.opacity = 0;
+     }, 10);
 
-  setTimeout(() => kiss.remove(), 1000);
+     setTimeout(() => kiss.remove(), 1000);
 
-  const kissSound = document.getElementById("kiss-sound");
-  kissSound.currentTime = 0; // rewind to start
-  kissSound.play();
+     const kissSound = document.getElementById("kiss-sound");
+     kissSound.currentTime = 0; // rewind to start
+     kissSound.play();
     }
 
     function downloadCuddles() {
